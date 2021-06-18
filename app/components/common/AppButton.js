@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Image, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 import LocaIcon from "../../assets/icons/locationTick.png"
 import Colors from '../../config/Colors';
 import ResSize from './ResSize';
 
-function AppButton(props) {
+function AppButton({ locIcon = false, width = ResSize(160), height = ResSize(28), title, handleSubmit, borderRadius = 10, fontSize = RFPercentage(2.9), backgroundColor = Colors.primary }) {
     return (
-        <TouchableOpacity activeOpacity={0.7} style={{ borderRadius: 10, flexDirection: "row", width: ResSize(160), backgroundColor: Colors.primary, height: ResSize(28) }} >
-            <View style={{ borderRadius: 10, flexDirection: "row", width: "100%", backgroundColor: Colors.primary, height: ResSize(28), justifyContent: "center", alignItems: "center" }} >
-                <Image source={LocaIcon} height={RFPercentage(5.5)} />
-                <Text style={{ fontFamily: "Karla_700Bold", marginLeft: 10, fontSize: RFPercentage(2.9), color: Colors.white }} >Trouver mon adresse</Text>
+        <TouchableOpacity onPress={() => handleSubmit()} activeOpacity={0.7} style={{ borderRadius, flexDirection: "row", width, backgroundColor, height }} >
+            <View style={{ borderRadius: 10, flexDirection: "row", width: "100%", backgroundColor, height, justifyContent: "center", alignItems: "center" }} >
+                {
+                    locIcon ? <Image source={LocaIcon} height={RFPercentage(5.5)} /> : null
+                }
+                <Text style={{ fontFamily: "Karla_700Bold", marginLeft: 10, fontSize, color: Colors.white }} >{title}</Text>
             </View>
         </TouchableOpacity>
     );

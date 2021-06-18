@@ -1,21 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Dimensions, Text, Image, TouchableOpacity } from 'react-native';
-import { Button } from 'react-native-paper';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 
 import AppButton from "../components/common/AppButton"
 
 import img from "../assets/images/Rectangle2.png"
 
-import Colors from '../config/Colors';
-
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
 
 function HomeScreen(props) {
+
+    const handleSubmit = () => {
+        console.log('clicked')
+    }
     return (
         <ImageBackground resizeMode="stretch" source={img} style={styles.backgroundImage}>
-            <AppButton />
+            <AppButton handleSubmit={() => handleSubmit()} title="Trouver mon adresse" locIcon={true} />
         </ImageBackground>
     );
 }

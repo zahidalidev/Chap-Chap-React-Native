@@ -9,6 +9,8 @@ import HomeScreen from '../screens/HomeScreen';
 // Config
 import Colors from '../config/Colors';
 import ResSize from './common/ResSize';
+import AdressesScreen from '../screens/AdressesScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator()
 
@@ -31,7 +33,7 @@ const HomeTab = () => (
             ),
         }}
         />
-        <Tab.Screen name="Search" component={HomeScreen} options={{
+        <Tab.Screen name="Search" component={AdressesScreen} options={{
             tabBarIcon: ({ color }) => (
                 <MaterialIcons
                     name="alternate-email"
@@ -41,7 +43,7 @@ const HomeTab = () => (
             ),
         }}
         />
-        <Tab.Screen name="CreateRecipe" component={HomeScreen} options={{
+        <Tab.Screen name="CreateRecipe" component={ProfileScreen} options={{
             tabBarIcon: ({ color }) => (
                 <Ionicons
                     name="person-circle-outline"
