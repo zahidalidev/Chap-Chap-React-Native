@@ -48,18 +48,18 @@ function ProfileScreen(props) {
     return (
         <View style={styles.container}>
             <View style={{ marginTop: ResSize(25) }} >
-                <Text style={{ fontFamily: "Karla_700Bold", fontSize: ResSize(15) }} >Modifier mon profil</Text>
+                <Text style={styles.heading} >Modifier mon profil</Text>
             </View>
 
             {/* Fields */}
-            <ScrollView style={{ width: "85%" }} >
+            <ScrollView style={styles.scroll} >
                 {
                     fields.map((item, index) =>
-                        <View key={index} style={{ borderBottomColor: Colors.grey, borderBottomWidth: 0.6, marginTop: ResSize(25), flex: 1, width: "80%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }} >
+                        <View key={index} style={styles.inputContainer} >
                             <TextInput
                                 placeholder={item.title}
                                 placeholderTextColor={Colors.black}
-                                style={{ width: "100%", fontFamily: "Karla_400Regular", fontSize: ResSize(12) }}
+                                style={styles.inputField}
                                 value={item.value}
                                 onChange={(e) => handleFields(e.target.value, index)}
                             />
@@ -85,6 +85,28 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "100%"
     },
+    heading: {
+        fontFamily: "Karla_700Bold",
+        fontSize: ResSize(15)
+    },
+    scroll: {
+        width: "85%"
+    },
+    inputContainer: {
+        borderBottomColor: Colors.grey,
+        borderBottomWidth: 0.6,
+        marginTop: ResSize(25),
+        flex: 1,
+        width: "80%",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center"
+    },
+    inputField: {
+        width: "100%",
+        fontFamily: "Karla_400Regular",
+        fontSize: ResSize(12)
+    },
     buttonContainer: {
         width: "90%",
         flexDirection: "row",
@@ -92,7 +114,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         position: "absolute",
         bottom: ResSize(20)
-    }
+    },
 })
 
 export default ProfileScreen;

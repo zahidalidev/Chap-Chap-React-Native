@@ -9,11 +9,11 @@ import ResSize from './ResSize';
 function AppButton({ locIcon = false, width = ResSize(160), height = ResSize(28), title, handleSubmit, borderRadius = 10, fontSize = RFPercentage(2.9), backgroundColor = Colors.primary }) {
     return (
         <TouchableOpacity onPress={() => handleSubmit()} activeOpacity={0.7} style={{ borderRadius, flexDirection: "row", width, backgroundColor, height }} >
-            <View style={{ borderRadius: 10, flexDirection: "row", width: "100%", backgroundColor, height, justifyContent: "center", alignItems: "center" }} >
+            <View style={[{ backgroundColor, height }, styles.container]} >
                 {
                     locIcon ? <Image source={LocaIcon} height={RFPercentage(5.5)} /> : null
                 }
-                <Text style={{ fontFamily: "Karla_700Bold", marginLeft: 10, fontSize, color: Colors.white }} >{title}</Text>
+                <Text style={[{ fontSize, color: Colors.white }, styles.textStyle]} >{title}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -21,8 +21,17 @@ function AppButton({ locIcon = false, width = ResSize(160), height = ResSize(28)
 
 const styles = StyleSheet.create({
     container: {
-
+        borderRadius: 10,
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    textStyle: {
+        fontFamily: "Karla_700Bold",
+        marginLeft: 10
     }
+
 })
 
 export default AppButton;

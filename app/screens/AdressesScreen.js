@@ -29,15 +29,15 @@ function AdressesScreen(props) {
 
     return (
         <View style={styles.container}>
-            <View style={{ marginTop: ResSize(25) }} >
-                <Text style={{ fontFamily: "Karla_700Bold", fontSize: ResSize(15) }} >Mes adresses</Text>
+            <View style={styles.headingContainer} >
+                <Text style={styles.heading} >Mes adresses</Text>
             </View>
-            <ScrollView style={{ width: "90%" }} >
+            <ScrollView style={styles.scroll} >
                 {
                     data.map((item, index) =>
-                        <View key={index} style={{ marginTop: ResSize(25), flex: 1, width: "100%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }} >
+                        <View key={index} style={styles.iconTitle} >
                             <MaterialCommunityIcons color={Colors.grey} name="chevron-right" size={ResSize(13)} />
-                            <Text style={{ fontFamily: "Karla_400Regular", fontSize: ResSize(11) }} >{item.title}</Text>
+                            <Text style={styles.title} >{item.title}</Text>
                         </View>
                     )
                 }
@@ -53,6 +53,28 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         width: "100%"
+    },
+    headingContainer: {
+        marginTop: ResSize(25)
+    },
+    heading: {
+        fontFamily: "Karla_700Bold",
+        fontSize: ResSize(15)
+    },
+    scroll: {
+        width: "90%"
+    },
+    iconTitle: {
+        marginTop: ResSize(25),
+        flex: 1,
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center"
+    },
+    title: {
+        fontFamily: "Karla_400Regular",
+        fontSize: ResSize(11)
     }
 })
 
