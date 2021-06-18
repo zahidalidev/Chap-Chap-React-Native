@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Dimensions, Text, Image } from 'react-native';
+import { StyleSheet, View, ImageBackground, Dimensions, Text, Image, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-paper';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
+import AppButton from "../components/common/AppButton"
+
 import img from "../assets/images/Rectangle2.png"
-import LocaIcon from "../assets/icons/locationTick.png"
 
 import Colors from '../config/Colors';
 
@@ -14,10 +15,7 @@ const width = Dimensions.get('window').width
 function HomeScreen(props) {
     return (
         <ImageBackground resizeMode="stretch" source={img} style={styles.backgroundImage}>
-            <Button style={{ flexDirection: "row", width: RFPercentage(34), backgroundColor: Colors.primary, height: RFPercentage(7.25), justifyContent: "center", alignItems: "center" }} >
-                <Image source={LocaIcon} style={{ marginRight: 15 }} />
-                <Text style={{ fontFamily: "Karla_400Regular", marginLeft: 10, fontSize: RFPercentage(2.2), color: Colors.white }} >Trouver mon adresse</Text>
-            </Button>
+            <AppButton />
         </ImageBackground>
     );
 }

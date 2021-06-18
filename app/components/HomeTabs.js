@@ -8,24 +8,25 @@ import HomeScreen from '../screens/HomeScreen';
 
 // Config
 import Colors from '../config/Colors';
+import ResSize from './common/ResSize';
 
 const Tab = createBottomTabNavigator()
 
 const HomeTab = () => (
     <Tab.Navigator initialRouteName="Home"
         tabBarOptions={{
+            showLabel: false,
             style: { height: RFPercentage(7.5) },
-            labelStyle: { fontSize: 0 },
             tabStyle: { backgroundColor: Colors.primary },
             activeTintColor: Colors.secondary, inactiveTintColor: Colors.white
         }}
     >
-        <Tab.Screen name="Home" component={HomeScreen} options={{
+        <Tab.Screen name="Home" options={{ header: () => null }} component={HomeScreen} options={{
             tabBarIcon: ({ color }) => (
                 <Feather
                     name="home"
                     color={color}
-                    size={RFPercentage(3.3)}
+                    size={ResSize(13)}
                 />
             ),
         }}
@@ -35,7 +36,7 @@ const HomeTab = () => (
                 <MaterialIcons
                     name="alternate-email"
                     color={color}
-                    size={RFPercentage(3.3)}
+                    size={ResSize(13)}
                 />
             ),
         }}
@@ -45,7 +46,7 @@ const HomeTab = () => (
                 <Ionicons
                     name="person-circle-outline"
                     color={color}
-                    size={RFPercentage(3.3)}
+                    size={ResSize(13)}
                 />
             ),
         }}
