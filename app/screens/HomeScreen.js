@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 
 import Recherche from "../components/Recherche";
+import VotreAdresse from "../components/VotreAdresse";
 import AppButton from "../components/common/AppButton"
-
 
 import img from "../assets/images/Rectangle2.png"
 
@@ -28,7 +28,7 @@ function HomeScreen(props) {
                 <Recherche handleSubmit={handleSubmitRech} /> : null
             }
             {currentComponent == 'votreAdresse' ?
-                <Recherche handleSubmit={handleSubmitRech} /> : null
+                <VotreAdresse handleSubmit={handleSubmitRech} /> : null
             }
         </>
     );
