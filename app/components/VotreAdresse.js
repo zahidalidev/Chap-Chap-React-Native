@@ -8,7 +8,7 @@ import ResSize from './common/ResSize';
 
 function VotreAdresse({ handleSubmit }) {
     return (
-        <View onPress={() => handleSubmit()} activeOpacity={0.9} style={styles.mainButton} >
+        <View activeOpacity={0.9} style={styles.mainButton} >
             <Text style={styles.heading} >Votre adresse est</Text>
             <View style={styles.container}>
                 <LinearGradient
@@ -30,7 +30,7 @@ function VotreAdresse({ handleSubmit }) {
                         <MaterialCommunityIcons color={Colors.primary} size={ResSize(15)} name="share-variant" />
                         <Text style={styles.rowName} >Partager</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.bottomRow} >
+                    <TouchableOpacity onPress={() => handleSubmit()} style={styles.bottomRow} >
                         <Feather color={Colors.primary} size={ResSize(15)} name="download" />
                         <Text style={styles.rowName} >Enregistrer</Text>
                     </TouchableOpacity>
