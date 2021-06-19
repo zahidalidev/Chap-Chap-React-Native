@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 
+import Recherche from "../components/Recherche";
 import AppButton from "../components/common/AppButton"
+
 
 import img from "../assets/images/Rectangle2.png"
 
@@ -9,14 +11,26 @@ const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
 
 function HomeScreen(props) {
+    const [currentComponent, setCurrentComponent] = useState('home')
 
-    const handleSubmit = () => {
-        console.log('clicked')
+    const handleSubmitRech = () => {
+        setCurrentComponent('votreAdresse')
     }
+
     return (
-        <ImageBackground resizeMode="stretch" source={img} style={styles.backgroundImage}>
-            <AppButton handleSubmit={() => handleSubmit()} title="Trouver mon adresse" locIcon={true} />
-        </ImageBackground>
+        <>
+            {currentComponent === 'home' ?
+                <ImageBackground resizeMode="stretch" source={img} style={styles.backgroundImage}>
+                    <AppButton handleSubmit={() => setCurrentComponent('recherche')} title="Trouver mon adresse" locIcon={true} />
+                </ImageBackground> : null}
+
+            {currentComponent == 'recherche' ?
+                <Recherche handleSubmit={handleSubmitRech} /> : null
+            }
+            {currentComponent == 'votreAdresse' ?
+                <Recherche handleSubmit={handleSubmitRech} /> : null
+            }
+        </>
     );
 }
 
