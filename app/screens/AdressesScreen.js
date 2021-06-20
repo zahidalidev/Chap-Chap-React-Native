@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import { MaterialCommunityIcons } from "@expo/vector-icons"
@@ -9,23 +9,45 @@ import { useState } from 'react';
 
 function AdressesScreen(props) {
 
-    const [data, setData] = useState([
-        {
-            title: "Domicile"
-        },
-        {
-            title: "Travail"
-        },
-        {
-            title: "Salle de Gym"
-        },
-        {
-            title: "Supermarché"
-        },
-        {
-            title: "Bar La rotonde"
-        },
-    ])
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        console.log(props.route)
+        if (props.route.params) {
+            setData([
+                {
+                    title: "Travail"
+                },
+                {
+                    title: "Salle de Gyme"
+                },
+                {
+                    title: "Supermarché"
+                },
+                {
+                    title: "Bar La rotonde"
+                },
+            ])
+        } else {
+            setData([
+                {
+                    title: "Domicile"
+                },
+                {
+                    title: "Travail"
+                },
+                {
+                    title: "Salle de Gym"
+                },
+                {
+                    title: "Supermarché"
+                },
+                {
+                    title: "Bar La rotonde"
+                },
+            ])
+        }
+    }, [])
 
     return (
         <View style={styles.container}>

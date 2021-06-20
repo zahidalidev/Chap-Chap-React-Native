@@ -10,6 +10,7 @@ import Particulier from '../components/Particulier';
 
 import img from "../assets/images/Rectangle2.png"
 import Colors from '../config/Colors';
+import Bravo from '../components/Bravo';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
@@ -31,14 +32,20 @@ function HomeScreen(props) {
 
     const entrepriseSubmit = () => {
         console.log("entrepriseSubmit")
+        setCurrentComponent("bravo")
     }
 
     const particulierSubmit = () => {
         console.log("entrepriseSubmit")
+        setCurrentComponent("bravo")
     }
 
     const goToParticulier = () => {
         setCurrentComponent("enregistrer")
+    }
+
+    const bravo = () => {
+        console.log('bravo')
     }
 
     return (
@@ -66,6 +73,10 @@ function HomeScreen(props) {
 
             {currentComponent == 'particulier' ?
                 <Particulier handleBack={goToParticulier} handleSubmit={particulierSubmit} /> : null
+            }
+
+            {currentComponent == 'bravo' ?
+                <Bravo handleBack={goToParticulier} handleSubmit={bravo} /> : null
             }
         </>
     );

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, TextInput } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 import Constants from 'expo-constants';
 
 import ResSize from '../components/common/ResSize';
-import Colors from '../config/Colors';
 import AppButton from '../components/common/AppButton';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import Colors from '../config/Colors';
 
 function ProfileScreen(props) {
 
@@ -39,6 +39,7 @@ function ProfileScreen(props) {
 
     const handleSuprimer = () => {
         console.log('clicked')
+        props.navigation.navigate('adresses', { data: "suprimer" })
     }
 
     const handleSauvegarder = () => {
@@ -46,6 +47,7 @@ function ProfileScreen(props) {
     }
 
     return (
+
         <View style={styles.container}>
             <View style={{ marginTop: ResSize(25) }} >
                 <Text style={styles.heading} >Modifier mon profil</Text>
@@ -74,6 +76,7 @@ function ProfileScreen(props) {
                 <AppButton handleSubmit={() => handleSuprimer()} title="Suprimer" fontSize={RFPercentage(2.4)} backgroundColor={Colors.secondaryDark} width={"45%"} height={ResSize(22)} />
             </View>
         </View>
+
     );
 }
 

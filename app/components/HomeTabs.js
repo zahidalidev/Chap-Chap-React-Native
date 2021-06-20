@@ -33,7 +33,7 @@ const HomeTab = () => (
             ),
         }}
         />
-        <Tab.Screen name="Search" component={AdressesScreen} options={{
+        <Tab.Screen name="adresses" component={AdressesScreen} options={{
             tabBarIcon: ({ color }) => (
                 <MaterialIcons
                     name="alternate-email"
@@ -43,7 +43,7 @@ const HomeTab = () => (
             ),
         }}
         />
-        <Tab.Screen name="CreateRecipe" component={ProfileScreen} options={{
+        <Tab.Screen name="profil" component={ProfileScreen} options={{
             tabBarIcon: ({ color }) => (
                 <Ionicons
                     name="person-circle-outline"
