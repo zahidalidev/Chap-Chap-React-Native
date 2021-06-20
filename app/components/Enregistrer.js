@@ -14,6 +14,7 @@ function Enregistrer({ handleSubmit }) {
                 <View style={styles.subContainer}>
                     <Text style={styles.subHeading} >Vous êtes</Text>
                     <AppButton
+                        handleSubmit={() => handleSubmit("particulier")}
                         width={ResSize(100)}
                         height={ResSize(25)}
                         title="Une entreprise"
@@ -21,10 +22,12 @@ function Enregistrer({ handleSubmit }) {
                     />
 
                     <AppButton
+                        handleSubmit={() => handleSubmit("entreprise")}
                         width={ResSize(100)}
                         height={ResSize(25)}
-                        title="Une entreprise"
+                        title="Un particulier"
                         font="regular"
+                        gradColor={['#39BAE8', '#0000A1']}
                     />
                 </View>
             </View>

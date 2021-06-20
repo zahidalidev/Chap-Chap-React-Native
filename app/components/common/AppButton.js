@@ -7,10 +7,10 @@ import LocaIcon from "../../assets/icons/locationTick.png"
 import Colors from '../../config/Colors';
 import ResSize from './ResSize';
 
-function AppButton({ font = "bold", backgroundColor = false, locIcon = false, width = ResSize(160), height = ResSize(28), title, handleSubmit, borderRadius = 10, fontSize = RFPercentage(2.9) }) {
+function AppButton({ gradColor = ['#0000A1', '#39BAE8'], font = "bold", backgroundColor = false, locIcon = false, width = ResSize(160), height = ResSize(28), title, handleSubmit, borderRadius = 10, fontSize = RFPercentage(2.9) }) {
     return (
         <TouchableOpacity onPress={() => handleSubmit()} activeOpacity={0.7} >
-            <LinearGradient colors={['#0000A1', '#39BAE8']} start={[0.1, 0.7]} end={[1, 0.2]} style={{ borderRadius, flexDirection: "row", width, backgroundColor, height }} >
+            <LinearGradient colors={gradColor} start={[0.1, 0.7]} end={[1, 0.2]} style={{ borderRadius, flexDirection: "row", width, backgroundColor, height }} >
                 <View style={[{ backgroundColor: backgroundColor ? Colors.primary : null, height }, styles.container]} >
                     {
                         locIcon ? <Image source={LocaIcon} height={RFPercentage(5.5)} /> : null

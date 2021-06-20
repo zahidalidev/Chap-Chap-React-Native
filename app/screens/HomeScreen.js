@@ -5,6 +5,7 @@ import Recherche from "../components/Recherche";
 import VotreAdresse from "../components/VotreAdresse";
 import AppButton from "../components/common/AppButton"
 import Enregistrer from '../components/Enregistrer';
+import Entreprise from '../components/Entreprise';
 
 import img from "../assets/images/Rectangle2.png"
 
@@ -20,6 +21,10 @@ function HomeScreen(props) {
 
     const enregistrer = () => {
         setCurrentComponent('enregistrer')
+    }
+
+    const particulierEentreprise = (current) => {
+        setCurrentComponent(current)
     }
 
     return (
@@ -38,7 +43,15 @@ function HomeScreen(props) {
             }
 
             {currentComponent == 'enregistrer' ?
-                <Enregistrer /> : null
+                <Enregistrer handleSubmit={particulierEentreprise} /> : null
+            }
+
+            {currentComponent == 'particulier' ?
+                <Entreprise /> : null
+            }
+
+            {currentComponent == 'entreprise' ?
+                <Entreprise /> : null
             }
         </>
     );
