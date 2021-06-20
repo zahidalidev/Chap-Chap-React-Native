@@ -21,21 +21,26 @@ function Entreprise({ handleSubmit, handleBack }) {
         },
         {
             id: 2,
-            title: "Nom",
+            title: "Nom de l’entreprise",
             value: ""
         },
         {
             id: 3,
-            title: "Prénom",
+            title: "Ville",
             value: ""
         },
         {
             id: 4,
-            title: "N° de téléphone",
-            value: "05 00 00 00 00"
+            title: "Pays",
+            value: ""
         },
         {
             id: 5,
+            title: "Contact Tel",
+            value: "05 00 00 00 00"
+        },
+        {
+            id: 6,
             title: "Adresse",
             value: "Carrefour Agbemadon"
         },
@@ -89,45 +94,54 @@ function Entreprise({ handleSubmit, handleBack }) {
                             onChange={(value) => handleChange(0, value)}
                         />
                     </View>
-                    <View style={styles.field1} >
+                    <View style={styles.field2} >
                         <AppTextInput
                             title={formFields[1].title}
-                            width="35%"
                             value={formFields[1].value}
-                            onChange={(value) => handleChange(1, value)}
+                            onChange={(value) => handleChange(0, value)}
                         />
+                    </View>
+                    <View style={styles.field1} >
                         <AppTextInput
                             title={formFields[2].title}
                             width="35%"
                             value={formFields[2].value}
+                            onChange={(value) => handleChange(1, value)}
+                        />
+                        <AppTextInput
+                            title={formFields[3].title}
+                            width="35%"
+                            value={formFields[3].value}
                             onChange={(value) => handleChange(2, value)}
                         />
                     </View>
                     <View style={styles.numberContainer} >
-                        <ReactNativeCrossPicker
-                            width="23%"
-                            modalTextStyle={{ color: "rgb(0, 74, 173)" }}
-                            mainComponentStyle={styles.pickerStyle}
-                            iconComponent={iconComponent}
-                            items={countryCodes}
-                            setItem={setCode}
-                            selectedItem={selectedCode}
-                            placeholder="+228"
-                            placeholderColor="white"
-                            modalMarginTop={"50%"} // popup model margin from the top 
-                        />
-                        <AppTextInput
-                            number={true}
-                            width="57%"
-                            title={formFields[3].title}
-                            value={formFields[3].value}
-                            onChange={(value) => handleChange(3, value)}
-                        />
+                        <Text style={styles.textStyle} >{formFields[4].title}</Text>
+                        <View style={styles.numberSubContainer}  >
+                            <ReactNativeCrossPicker
+                                width="30%"
+                                modalTextStyle={{ color: "rgb(0, 74, 173)" }}
+                                mainComponentStyle={styles.pickerStyle}
+                                iconComponent={iconComponent}
+                                items={countryCodes}
+                                setItem={setCode}
+                                selectedItem={selectedCode}
+                                placeholder="+228"
+                                placeholderColor="white"
+                                modalMarginTop={"50%"} // popup model margin from the top 
+                            />
+                            <AppTextInput
+                                number={true}
+                                width="70%"
+                                value={formFields[4].value}
+                                onChange={(value) => handleChange(3, value)}
+                            />
+                        </View>
                     </View>
                     <View style={styles.field2} >
                         <AppTextInput
-                            title={formFields[4].title}
-                            value={formFields[4].value}
+                            title={formFields[5].title}
+                            value={formFields[5].value}
                             onChange={(value) => handleChange(4, value)}
                         />
                     </View>
@@ -203,7 +217,7 @@ const styles = StyleSheet.create({
     },
     pickerStyle: {
         height: ResSize(26),
-        marginTop: ResSize(15),
+        marginTop: ResSize(12),
         borderRadius: 0,
         borderTopLeftRadius: ResSize(5),
         borderBottomLeftRadius: ResSize(5),
@@ -217,17 +231,27 @@ const styles = StyleSheet.create({
         width: "200%"
     },
     numberContainer: {
-        flexDirection: "row",
+        flexDirection: "column",
         marginTop: ResSize(10),
+        width: "80%",
+        alignItems: "flex-start",
+        justifyContent: "center"
+    },
+    numberSubContainer: {
+        flexDirection: "row",
         width: "100%",
         alignItems: "center",
         justifyContent: "center"
     },
     buttonContaienr: {
-        marginTop: ResSize(80),
+        marginTop: ResSize(30),
         width: "80%",
         alignItems: "flex-end"
-    }
+    },
+    textStyle: {
+        fontFamily: "Karla_400Regular",
+        fontSize: ResSize(11)
+    },
 })
 
 export default Entreprise;

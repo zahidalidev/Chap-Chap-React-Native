@@ -14,7 +14,7 @@ function AppTextInput({ number = false, width = "80%", onChange, title, value })
             <TextInput
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                style={[styles.textField, { borderBottomLeftRadius: number ? 0 : ResSize(5), borderTopLeftRadius: number ? 0 : ResSize(5) }]}
+                style={[styles.textField, { marginTop: title ? ResSize(5) : 0, borderBottomLeftRadius: number ? 0 : ResSize(5), borderTopLeftRadius: number ? 0 : ResSize(5) }]}
             />
         </View>
     );
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         fontSize: ResSize(11)
     },
     textField: {
-        marginTop: ResSize(5),
         borderWidth: 1,
         borderColor: Colors.border,
         borderRadius: ResSize(5),

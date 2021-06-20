@@ -104,25 +104,27 @@ function Particulier({ handleSubmit, handleBack }) {
                         />
                     </View>
                     <View style={styles.numberContainer} >
-                        <ReactNativeCrossPicker
-                            width="23%"
-                            modalTextStyle={{ color: "rgb(0, 74, 173)" }}
-                            mainComponentStyle={styles.pickerStyle}
-                            iconComponent={iconComponent}
-                            items={countryCodes}
-                            setItem={setCode}
-                            selectedItem={selectedCode}
-                            placeholder="+228"
-                            placeholderColor="white"
-                            modalMarginTop={"50%"} // popup model margin from the top 
-                        />
-                        <AppTextInput
-                            number={true}
-                            width="57%"
-                            title={formFields[3].title}
-                            value={formFields[3].value}
-                            onChange={(value) => handleChange(3, value)}
-                        />
+                        <Text style={styles.textStyle} >{formFields[3].title}</Text>
+                        <View style={styles.numberSubContainer}  >
+                            <ReactNativeCrossPicker
+                                width="30%"
+                                modalTextStyle={{ color: "rgb(0, 74, 173)" }}
+                                mainComponentStyle={styles.pickerStyle}
+                                iconComponent={iconComponent}
+                                items={countryCodes}
+                                setItem={setCode}
+                                selectedItem={selectedCode}
+                                placeholder="+228"
+                                placeholderColor="white"
+                                modalMarginTop={"50%"} // popup model margin from the top 
+                            />
+                            <AppTextInput
+                                number={true}
+                                width="70%"
+                                value={formFields[3].value}
+                                onChange={(value) => handleChange(3, value)}
+                            />
+                        </View>
                     </View>
                     <View style={styles.field2} >
                         <AppTextInput
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
     },
     pickerStyle: {
         height: ResSize(26),
-        marginTop: ResSize(15),
+        marginTop: ResSize(12),
         borderRadius: 0,
         borderTopLeftRadius: ResSize(5),
         borderBottomLeftRadius: ResSize(5),
@@ -217,8 +219,14 @@ const styles = StyleSheet.create({
         width: "200%"
     },
     numberContainer: {
-        flexDirection: "row",
+        flexDirection: "column",
         marginTop: ResSize(10),
+        width: "80%",
+        alignItems: "flex-start",
+        justifyContent: "center"
+    },
+    numberSubContainer: {
+        flexDirection: "row",
         width: "100%",
         alignItems: "center",
         justifyContent: "center"
@@ -227,7 +235,11 @@ const styles = StyleSheet.create({
         marginTop: ResSize(80),
         width: "80%",
         alignItems: "flex-end"
-    }
+    },
+    textStyle: {
+        fontFamily: "Karla_400Regular",
+        fontSize: ResSize(11)
+    },
 })
 
 export default Particulier;

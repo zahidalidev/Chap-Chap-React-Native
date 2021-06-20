@@ -70,7 +70,7 @@ function ProfileScreen(props) {
             </ScrollView>
             {/* Buttons */}
             <View style={styles.buttonContainer} >
-                <AppButton handleSubmit={() => handleSauvegarder()} title="Sauvegarder" fontSize={RFPercentage(2.4)} width={"45%"} height={ResSize(22)} />
+                <AppButton handleSubmit={() => handleSauvegarder()} title="Sauvegarder" backgroundColor={Colors.primary} fontSize={RFPercentage(2.4)} width={"45%"} height={ResSize(22)} />
                 <AppButton handleSubmit={() => handleSuprimer()} title="Suprimer" fontSize={RFPercentage(2.4)} backgroundColor={Colors.secondaryDark} width={"45%"} height={ResSize(22)} />
             </View>
         </View>

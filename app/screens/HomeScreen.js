@@ -9,6 +9,7 @@ import Entreprise from '../components/Entreprise';
 import Particulier from '../components/Particulier';
 
 import img from "../assets/images/Rectangle2.png"
+import Colors from '../config/Colors';
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
@@ -44,7 +45,7 @@ function HomeScreen(props) {
         <>
             {currentComponent === 'home' ?
                 <ImageBackground resizeMode="stretch" source={img} style={styles.backgroundImage}>
-                    <AppButton backgroundColor={true} handleSubmit={() => setCurrentComponent('recherche')} title="Trouver mon adresse" locIcon={true} />
+                    <AppButton backgroundColor={Colors.primary} handleSubmit={() => setCurrentComponent('recherche')} title="Trouver mon adresse" locIcon={true} />
                 </ImageBackground> : null}
 
             {currentComponent == 'recherche' ?
