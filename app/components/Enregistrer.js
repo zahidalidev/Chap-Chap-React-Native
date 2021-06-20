@@ -14,7 +14,7 @@ function Enregistrer({ handleSubmit }) {
                 <View style={styles.subContainer}>
                     <Text style={styles.subHeading} >Vous êtes</Text>
                     <AppButton
-                        handleSubmit={() => handleSubmit("particulier")}
+                        handleSubmit={() => handleSubmit("entreprise")}
                         width={ResSize(100)}
                         height={ResSize(25)}
                         title="Une entreprise"
@@ -22,7 +22,7 @@ function Enregistrer({ handleSubmit }) {
                     />
 
                     <AppButton
-                        handleSubmit={() => handleSubmit("entreprise")}
+                        handleSubmit={() => handleSubmit("particulier")}
                         width={ResSize(100)}
                         height={ResSize(25)}
                         title="Un particulier"

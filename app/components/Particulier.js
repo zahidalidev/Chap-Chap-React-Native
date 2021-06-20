@@ -11,7 +11,7 @@ import AppButton from './common/AppButton';
 // config
 import Colors from '../config/Colors';
 
-function Entreprise({ handleSubmit, handleBack }) {
+function Particulier({ handleSubmit, handleBack }) {
     const [selectedCode, setCode] = useState('')
     const [formFields, setFormFields] = useState([
         {
@@ -78,7 +78,7 @@ function Entreprise({ handleSubmit, handleBack }) {
                 <TouchableOpacity onPress={() => handleBack()} style={{ width: "35%" }} >
                     <FontAwesome name="long-arrow-left" size={30} />
                 </TouchableOpacity>
-                <Text style={styles.heading} >Entreprise</Text>
+                <Text style={styles.heading} >Particulier</Text>
             </View>
             <ScrollView style={{ width: "100%" }} >
                 <View style={styles.container}>
@@ -230,4 +230,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Entreprise;
+export default Particulier;

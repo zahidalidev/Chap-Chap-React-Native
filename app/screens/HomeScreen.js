@@ -6,6 +6,7 @@ import VotreAdresse from "../components/VotreAdresse";
 import AppButton from "../components/common/AppButton"
 import Enregistrer from '../components/Enregistrer';
 import Entreprise from '../components/Entreprise';
+import Particulier from '../components/Particulier';
 
 import img from "../assets/images/Rectangle2.png"
 
@@ -27,6 +28,18 @@ function HomeScreen(props) {
         setCurrentComponent(current)
     }
 
+    const entrepriseSubmit = () => {
+        console.log("entrepriseSubmit")
+    }
+
+    const particulierSubmit = () => {
+        console.log("entrepriseSubmit")
+    }
+
+    const goToParticulier = () => {
+        setCurrentComponent("enregistrer")
+    }
+
     return (
         <>
             {currentComponent === 'home' ?
@@ -46,12 +59,12 @@ function HomeScreen(props) {
                 <Enregistrer handleSubmit={particulierEentreprise} /> : null
             }
 
-            {currentComponent == 'particulier' ?
-                <Entreprise /> : null
+            {currentComponent == 'entreprise' ?
+                <Entreprise handleBack={goToParticulier} handleSubmit={entrepriseSubmit} /> : null
             }
 
-            {currentComponent == 'entreprise' ?
-                <Entreprise /> : null
+            {currentComponent == 'particulier' ?
+                <Particulier handleBack={goToParticulier} handleSubmit={particulierSubmit} /> : null
             }
         </>
     );
